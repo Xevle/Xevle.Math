@@ -52,6 +52,8 @@ namespace Xevle.Math.Tuples
         #endregion
 
 		#region Operators
+
+		#region Binary operators
 		/// <summary>
 		/// Add one vector to another vector.
 		/// </summary>
@@ -65,11 +67,53 @@ namespace Xevle.Math.Tuples
 		/// <summary>
 		/// Subtracts one vector from another vector.
 		/// </summary>
-		/// <param name="a">The first Tuple</param>
-		/// <param name="b">The second Tuple</param>
+		/// <param name="a">The first tuple</param>
+		/// <param name="b">The second tuple</param>
 		public static Tuple3dc operator- (Tuple3dc a, Tuple3dc b)
 		{
 			return new Tuple3dc (a.x - b.x, a.y - b.y, a.z - b.z);
+		}
+
+		/// <summary>
+		/// Scale the vector
+		/// </summary>
+		/// <param name="a">The tuple</param>
+		/// <param name="b">The scale value</param>
+		public static Tuple3dc operator *(Tuple3dc a, double b)
+		{
+			return new Tuple3dc(a.x * b, a.y * b, a.z * b);
+		}
+
+		/// <summary>
+		/// Returns the dot product of two vectors
+		/// </summary>
+		/// <param name="a">The first Tuple</param>
+		/// <param name="b">The second Tuple</param>
+		public static double operator *(Tuple3dc a, Tuple3dc b)
+		{
+			return a.x * b.x + a.y * b.y + a.z * b.z;
+		}
+
+		/// <summary>
+		/// Returns the cross product of two vectors
+		/// </summary>
+		/// <param name="a">The first Tuple</param>
+		/// <param name="b">The second Tuple</param>
+		public static Tuple3dc operator ^(Tuple3dc a, Tuple3dc b) // cross product
+		{
+			return new Tuple3dc(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x);
+		}
+		#endregion
+		#endregion
+
+		#region Methods
+		/// <summary>
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="Xevle.Math.Tuples.Tuple3dc"/>.
+		/// </summary>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="Xevle.Math.Tuples.Tuple3dc"/>.</returns>
+		public override string ToString()
+		{
+			return String.Format("({0}; {1}; {2})", x, y, z);
 		}
 		#endregion
 
