@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Xevle.Math
+namespace Xevle.Math.Tuples
 {
 	/// <summary>
 	/// Represents a vector
@@ -51,6 +51,9 @@ namespace Xevle.Math
         #endregion
 
 		#region Operators
+		/// <summary>
+		/// Add one vector to another vector.
+		/// </summary>
 		/// <param name="a">The first Tuple</param>
 		/// <param name="b">The second Tuple</param>
 		public static Tuple3dc operator+ (Tuple3dc a, Tuple3dc b)
@@ -58,6 +61,9 @@ namespace Xevle.Math
 			return new Tuple3dc (a.x + b.x, a.y + b.y, a.z + b.z);
 		}
 
+		/// <summary>
+		/// Subtracts one vector from another vector.
+		/// </summary>
 		/// <param name="a">The first Tuple</param>
 		/// <param name="b">The second Tuple</param>
 		public static Tuple3dc operator- (Tuple3dc a, Tuple3dc b)

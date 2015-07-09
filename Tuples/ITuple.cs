@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Xevle.Math
+namespace Xevle.Math.Tuples
 {
 	/// <summary>
 	/// Interface for all Tuple classes and structs

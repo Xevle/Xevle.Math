@@ -34,8 +34,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ITuple.cs" />
-    <Compile Include="Tuple3dc.cs" />
+    <Compile Include="Tuples\ITuple.cs" />
+    <Compile Include="Tuples\Tuple3dc.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Tuples\" />
+  </ItemGroup>
 </Project>
