@@ -1,11 +1,12 @@
 ﻿using System;
+using Xevle.Core;
 
 namespace Xevle.Math.Tuples
 {
 	/// <summary>
 	/// Interface for all Tuple classes and structs
 	/// </summary>
-    public interface ITuple
+	public interface ITuple: ICopy<ITuple>
     {
 		/// <summary>
 		/// Gets or sets the value U.

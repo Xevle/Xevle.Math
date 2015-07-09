@@ -1,4 +1,5 @@
 ﻿using System;
+using Xevle.Core;
 
 namespace Xevle.Math.Tuples
 {
@@ -150,6 +151,18 @@ namespace Xevle.Math.Tuples
                 z=value;
             }
         }
-        #endregion     
+        #endregion    
+
+		#region ICopy Members
+		ITuple ICopy<ITuple>.Copy()
+		{
+			return Copy();
+		}
+
+		public Tuple3dc Copy()
+		{
+			return (Tuple3dc)MemberwiseClone();
+		}
+		#endregion
     }
 }

@@ -41,4 +41,10 @@
   <ItemGroup>
     <Folder Include="Tuples\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Xevle.Core\Xevle.Core.csproj">
+      <Project>{4D90F3D7-F459-4272-A2FB-7A6B6987EA2D}</Project>
+      <Name>Xevle.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>
