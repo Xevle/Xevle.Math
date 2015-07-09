@@ -154,11 +154,17 @@ namespace Xevle.Math.Tuples
         #endregion    
 
 		#region ICopy Members
+		/// <summary>
+		/// Copy this instance as ITuple
+		/// </summary>
 		ITuple ICopy<ITuple>.Copy()
 		{
 			return Copy();
 		}
 
+		/// <summary>
+		/// Copy this instance as Tuple3dc
+		/// </summary>
 		public Tuple3dc Copy()
 		{
 			return (Tuple3dc)MemberwiseClone();
