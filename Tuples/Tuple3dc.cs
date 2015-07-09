@@ -126,6 +126,21 @@ namespace Xevle.Math.Tuples
 		}
 
 		/// <summary>
+		/// Calculate if a tuple is inner a defined epsilon on 2 dimensions
+		/// </summary>
+		/// <returns><c>true</c>, if the tuple was is identical in the range of epsilon, <c>false</c> otherwise.</returns>
+		/// <param name="a">The alpha component.</param>
+		/// <param name="epsilon">maximum difference value</param>
+		public bool EpsilonEquals2D(ITuple a, double epsilon)
+		{
+			double diff = x - a.X;
+			if ((diff >= 0.0 ? diff : -diff) > epsilon) return false;
+
+			diff = y - a.X;
+			return (diff >= 0.0 ? diff : -diff) <= epsilon;
+		}
+
+		/// <summary>
 		/// Returns a <see cref="System.String"/> that represents the current <see cref="Xevle.Math.Tuples.Tuple3dc"/>.
 		/// </summary>
 		/// <returns>A <see cref="System.String"/> that represents the current <see cref="Xevle.Math.Tuples.Tuple3dc"/>.</returns>
