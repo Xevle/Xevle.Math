@@ -52,6 +52,45 @@ namespace Xevle.Math.Tuples
         #endregion
 
 		#region Operators
+		#region Unary operators
+		/// <summary>
+		/// Does nothing, only for completeness
+		/// </summary>
+		/// <param name="a">The tuple</param>
+		public static Tuple3dc operator +(Tuple3dc a)
+		{
+			return new Tuple3dc(a);
+		}
+
+		/// <summary>
+		/// Invert the sign of the x, y and z component
+		/// </summary>
+		/// <param name="a">The tuple</param>
+		public static Tuple3dc operator -(Tuple3dc a)
+		{
+			return new Tuple3dc(-a.x, -a.y, -a.z);
+		}
+
+		/// <summary>
+		/// Calculate the magnitude of a vectors
+		/// </summary>
+		/// <param name="a">The tuple</param>
+		public static double operator !(Tuple3dc a)
+		{
+			return System.Math.Sqrt (a.x * a.x + a.y * a.y + a.z * a.z);
+		}
+
+		/// <summary>
+		/// Calculate the normalized vector
+		/// </summary>
+		/// <param name="a">The tuple</param>
+		public static Tuple3dc operator ~(Tuple3dc a)
+		{
+			double magnitude = !a;
+			if (magnitude == 0) return new Tuple3dc(1, 0, 0);
+			return new Tuple3dc(a.x / magnitude, a.y / magnitude, a.z / magnitude);
+		}
+		#endregion
 
 		#region Binary operators
 		/// <summary>
@@ -99,14 +138,36 @@ namespace Xevle.Math.Tuples
 		/// </summary>
 		/// <param name="a">The first Tuple</param>
 		/// <param name="b">The second Tuple</param>
-		public static Tuple3dc operator ^(Tuple3dc a, Tuple3dc b) // cross product
+		public static Tuple3dc operator ^(Tuple3dc a, Tuple3dc b)
 		{
 			return new Tuple3dc(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x);
+		}
+
+		/// <summary>
+		/// Calculate the distance of two vectors
+		/// </summary>
+		/// <param name="a">The tuple</param>
+		public static double operator %(Tuple3dc a, Tuple3dc b)
+		{
+			return !(a - b);
 		}
 		#endregion
 		#endregion
 
 		#region Methods
+		/// <summary>
+		/// Calculate the angle between this and the b vector
+		/// </summary>
+		/// <returns>The angle from this tuple to tuple b</returns>
+		/// <param name="b">The tuple</param>
+		public double AngleTo(Tuple3dc b)
+		{
+			double c = (this * b) / (!this * !b);
+			if (c > 1) c = 1;
+			if (c < -1) c = -1;
+			return System.Math.Acos (c);
+		}
+
 		/// <summary>
 		/// Calculate if a tuple is inner a defined epsilon
 		/// </summary>
