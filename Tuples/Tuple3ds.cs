@@ -32,9 +32,9 @@ namespace Xevle.Math.Tuples
 		/// <param name="tuple">Instance of an ITuple implementor.</param>
 		public Tuple3ds(ITuple tuple)
 		{
-			x=tuple.X;
-			y=tuple.Y;
-			z=tuple.Z;
+			x = tuple.X;
+			y = tuple.Y;
+			z = tuple.Z;
 		}
 
 		/// <summary>
@@ -43,11 +43,11 @@ namespace Xevle.Math.Tuples
 		/// <param name="x">The x coordinate.</param>
 		/// <param name="y">The y coordinate.</param>
 		/// <param name="z">The z coordinate.</param>
-		public Tuple3ds(double x=0, double y=0, double z=0)
+		public Tuple3ds(double x = 0, double y = 0, double z = 0)
 		{
-			this.x=x;
-			this.y=y;
-			this.z=z;
+			this.x = x;
+			this.y = y;
+			this.z = z;
 		}
 		#endregion
 
@@ -77,7 +77,7 @@ namespace Xevle.Math.Tuples
 		/// <param name="a">The tuple</param>
 		public static double operator !(Tuple3ds a)
 		{
-			return System.Math.Sqrt (a.x * a.x + a.y * a.y + a.z * a.z);
+			return System.Math.Sqrt(a.x * a.x + a.y * a.y + a.z * a.z);
 		}
 
 		/// <summary>
@@ -98,9 +98,9 @@ namespace Xevle.Math.Tuples
 		/// </summary>
 		/// <param name="a">The first Tuple</param>
 		/// <param name="b">The second Tuple</param>
-		public static Tuple3ds operator+ (Tuple3ds a, Tuple3ds b)
+		public static Tuple3ds operator+(Tuple3ds a, Tuple3ds b)
 		{
-			return new Tuple3ds (a.x + b.x, a.y + b.y, a.z + b.z);
+			return new Tuple3ds(a.x + b.x, a.y + b.y, a.z + b.z);
 		}
 
 		/// <summary>
@@ -108,9 +108,9 @@ namespace Xevle.Math.Tuples
 		/// </summary>
 		/// <param name="a">The first tuple</param>
 		/// <param name="b">The second tuple</param>
-		public static Tuple3ds operator- (Tuple3ds a, Tuple3ds b)
+		public static Tuple3ds operator-(Tuple3ds a, Tuple3ds b)
 		{
-			return new Tuple3ds (a.x - b.x, a.y - b.y, a.z - b.z);
+			return new Tuple3ds(a.x - b.x, a.y - b.y, a.z - b.z);
 		}
 
 		/// <summary>
@@ -165,7 +165,7 @@ namespace Xevle.Math.Tuples
 			double c = (this * b) / (!this * !b);
 			if (c > 1) c = 1;
 			if (c < -1) c = -1;
-			return System.Math.Acos (c);
+			return System.Math.Acos(c);
 		}
 
 		/// <summary>
@@ -254,7 +254,7 @@ namespace Xevle.Math.Tuples
 			}
 			set
 			{
-				x=value;
+				x = value;
 			}
 		}
 
@@ -270,7 +270,7 @@ namespace Xevle.Math.Tuples
 			}
 			set
 			{
-				y=value;
+				y = value;
 			}
 		}
 
@@ -286,10 +286,10 @@ namespace Xevle.Math.Tuples
 			}
 			set
 			{
-				z=value;
+				z = value;
 			}
 		}
-		#endregion    
+		#endregion
 
 		#region ICopy Members
 		/// <summary>
