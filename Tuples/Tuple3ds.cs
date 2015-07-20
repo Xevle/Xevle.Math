@@ -197,7 +197,7 @@ namespace Xevle.Math.Tuples
 			double diff = x - a.X;
 			if ((diff >= 0.0 ? diff : -diff) > epsilon) return false;
 
-			diff = y - a.X;
+			diff = y - a.Y;
 			return (diff >= 0.0 ? diff : -diff) <= epsilon;
 		}
 

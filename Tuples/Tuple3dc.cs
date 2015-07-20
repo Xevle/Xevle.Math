@@ -90,11 +90,9 @@ namespace Xevle.Math.Tuples
 			if (magnitude == 0) return new Tuple3dc(1, 0, 0);
 			return new Tuple3dc(a.x / magnitude, a.y / magnitude, a.z / magnitude);
 		}
-
 		#endregion
 
 		#region Binary operators
-
 		/// <summary>
 		/// Add one vector to another vector.
 		/// </summary>
@@ -153,13 +151,10 @@ namespace Xevle.Math.Tuples
 		{
 			return !(a - b);
 		}
-
 		#endregion
-
 		#endregion
 
 		#region Methods
-
 		/// <summary>
 		/// Calculate the angle between this and the b vector
 		/// </summary>
@@ -202,7 +197,7 @@ namespace Xevle.Math.Tuples
 			double diff = x - a.X;
 			if ((diff >= 0.0 ? diff : -diff) > epsilon) return false;
 
-			diff = y - a.X;
+			diff = y - a.Y;
 			return (diff >= 0.0 ? diff : -diff) <= epsilon;
 		}
 
@@ -214,11 +209,9 @@ namespace Xevle.Math.Tuples
 		{
 			return String.Format("({0}; {1}; {2})", x, y, z);
 		}
-
 		#endregion
 
 		#region ITuple implementation
-
 		/// <summary>
 		/// Gets or sets the value U.
 		/// </summary>
@@ -296,11 +289,9 @@ namespace Xevle.Math.Tuples
 				z = value;
 			}
 		}
-
 		#endregion
 
 		#region ICopy Members
-
 		/// <summary>
 		/// Copy this instance as ITuple
 		/// </summary>
@@ -316,7 +307,6 @@ namespace Xevle.Math.Tuples
 		{
 			return (Tuple3dc)MemberwiseClone();
 		}
-
 		#endregion
 	}
 }
