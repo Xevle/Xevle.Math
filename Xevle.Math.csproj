@@ -37,6 +37,7 @@
     <Compile Include="Tuples\ITuple.cs" />
     <Compile Include="Tuples\Tuple3dc.cs" />
     <Compile Include="Tuples\Tuple3ds.cs" />
+    <Compile Include="Tuples\ITupleExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
