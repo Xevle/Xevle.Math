@@ -146,7 +146,8 @@ namespace Xevle.Math.Tuples
 		/// <summary>
 		/// Calculate the distance of two vectors
 		/// </summary>
-		/// <param name="a">The tuple</param>
+		/// <param name="a">The first tuple</param>
+		/// <param name="b">The second tuple</param>
 		public static double operator %(Tuple3ds a, Tuple3ds b)
 		{
 			return !(a - b);
