@@ -104,6 +104,16 @@ namespace Xevle.Math.Tuples
 		}
 
 		/// <summary>
+		/// Add one vector to another vector.
+		/// </summary>
+		/// <param name="a">The first Tuple</param>
+		/// <param name="b">The second Tuple as ITuple</param>
+		public static Tuple3dc operator+(Tuple3dc a, ITuple b)
+		{
+			return new Tuple3dc(a.x + b.X, a.y + b.Y, a.z + b.Z);
+		}
+
+		/// <summary>
 		/// Subtracts one vector from another vector.
 		/// </summary>
 		/// <param name="a">The first tuple</param>
@@ -111,6 +121,16 @@ namespace Xevle.Math.Tuples
 		public static Tuple3dc operator-(Tuple3dc a, Tuple3dc b)
 		{
 			return new Tuple3dc(a.x - b.x, a.y - b.y, a.z - b.z);
+		}
+
+		/// <summary>
+		/// Subtracts one vector from another vector.
+		/// </summary>
+		/// <param name="a">The first tuple</param>
+		/// <param name="b">The second tuple as ITuple</param>
+		public static Tuple3dc operator-(Tuple3dc a, ITuple b)
+		{
+			return new Tuple3dc(a.x - b.X, a.y - b.Y, a.z - b.Z);
 		}
 
 		/// <summary>
@@ -134,6 +154,16 @@ namespace Xevle.Math.Tuples
 		}
 
 		/// <summary>
+		/// Returns the dot product of two vectors
+		/// </summary>
+		/// <param name="a">The first Tuple</param>
+		/// <param name="b">The second Tuple as ITuple</param>
+		public static double operator *(Tuple3dc a, ITuple b)
+		{
+			return a.x * b.X + a.y * b.Y + a.z * b.Z;
+		}
+
+		/// <summary>
 		/// Returns the cross product of two vectors
 		/// </summary>
 		/// <param name="a">The first Tuple</param>
@@ -144,11 +174,31 @@ namespace Xevle.Math.Tuples
 		}
 
 		/// <summary>
+		/// Returns the cross product of two vectors
+		/// </summary>
+		/// <param name="a">The first Tuple</param>
+		/// <param name="b">The second Tuple as ITuple</param>
+		public static Tuple3dc operator ^(Tuple3dc a, ITuple b)
+		{
+			return new Tuple3dc(a.y * b.Z- a.z * b.Y, a.z * b.X - a.x * b.Z, a.x * b.Y - a.y * b.X);
+		}
+
+		/// <summary>
 		/// Calculate the distance of two vectors
 		/// </summary>
 		/// <param name="a">The first tuple</param>
 		/// <param name="b">The second tuple</param>
 		public static double operator %(Tuple3dc a, Tuple3dc b)
+		{
+			return !(a - b);
+		}
+
+		/// <summary>
+		/// Calculate the distance of two vectors
+		/// </summary>
+		/// <param name="a">The first tuple</param>
+		/// <param name="b">The second tuple as ITuple</param>
+		public static double operator %(Tuple3dc a, ITuple b)
 		{
 			return !(a - b);
 		}
