@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{69DDF62D-1B61-4B1E-8452-91436E0DAADB}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Xevle.Math</RootNamespace>
+    <RootNamespace>Xevle.Maths</RootNamespace>
     <AssemblyName>Xevle.Math</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <ProductVersion>8.0.30703</ProductVersion>

@@ -1,7 +1,7 @@
 ﻿using System;
 using Xevle.Core;
 
-namespace Xevle.Math.Tuples
+namespace Xevle.Maths.Tuples
 {
 	/// <summary>
 	/// Represents a vector as a class

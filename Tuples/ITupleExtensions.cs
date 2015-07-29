@@ -1,7 +1,6 @@
 ﻿using System;
-using Xevle.Math.Tuples;
 
-namespace Xevle.Math.Tuples
+namespace Xevle.Maths.Tuples
 {
 	/// <summary>
 	/// Static class that server ITuple extensions methods.
