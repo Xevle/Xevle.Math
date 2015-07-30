@@ -180,7 +180,7 @@ namespace Xevle.Maths.Tuples
 		/// <param name="b">The second Tuple as ITuple</param>
 		public static Tuple3dc operator ^(Tuple3dc a, ITuple b)
 		{
-			return new Tuple3dc(a.y * b.Z- a.z * b.Y, a.z * b.X - a.x * b.Z, a.x * b.Y - a.y * b.X);
+			return new Tuple3dc(a.y * b.Z - a.z * b.Y, a.z * b.X - a.x * b.Z, a.x * b.Y - a.y * b.X);
 		}
 
 		/// <summary>
