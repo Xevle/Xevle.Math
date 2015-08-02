@@ -6,7 +6,7 @@
     <ProjectGuid>{69DDF62D-1B61-4B1E-8452-91436E0DAADB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Xevle.Maths</RootNamespace>
-    <AssemblyName>Xevle.Math</AssemblyName>
+    <AssemblyName>Xevle.Maths</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
@@ -38,6 +38,12 @@
     <Compile Include="Tuples\Tuple3dc.cs" />
     <Compile Include="Tuples\Tuple3ds.cs" />
     <Compile Include="Tuples\ITupleExtensions.cs" />
+    <Compile Include="Tuples\Tuple2ic.cs" />
+    <Compile Include="Tuples\Tuple2dc.cs" />
+    <Compile Include="Tuples\Tuple3ic.cs" />
+    <Compile Include="Tuples\Tuple2ds.cs" />
+    <Compile Include="Tuples\Tuple3is.cs" />
+    <Compile Include="Tuples\Tuple2is.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
