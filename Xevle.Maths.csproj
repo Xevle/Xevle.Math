@@ -44,10 +44,12 @@
     <Compile Include="Tuples\Tuple2ds.cs" />
     <Compile Include="Tuples\Tuple3is.cs" />
     <Compile Include="Tuples\Tuple2is.cs" />
+    <Compile Include="Arithmetic\BinaryArithmetic.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Tuples\" />
+    <Folder Include="Arithmetic\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xevle.Core\Xevle.Core.csproj">
