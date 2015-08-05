@@ -45,6 +45,7 @@
     <Compile Include="Tuples\Tuple3is.cs" />
     <Compile Include="Tuples\Tuple2is.cs" />
     <Compile Include="Arithmetic\BinaryArithmetic.cs" />
+    <Compile Include="Tuples\ListOfITupleExtensions.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
