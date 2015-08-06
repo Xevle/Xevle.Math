@@ -220,7 +220,7 @@ namespace Xevle.Maths.Tuples
 			double c = (this * b) / (!this * !b);
 			if (c > 1) c = 1;
 			if (c < -1) c = -1;
-			return System.Math.Acos(c);
+			return Math.Acos(c);
 		}
 
 		/// <summary>

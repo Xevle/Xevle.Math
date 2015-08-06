@@ -70,7 +70,7 @@ namespace Xevle.Maths.Tuples
 		/// <param name="a">The tuple</param>
 		public static double operator !(Tuple2ic a)
 		{
-			return System.Math.Sqrt(a.x * a.x + a.y * a.y);
+			return Math.Sqrt(a.x * a.x + a.y * a.y);
 		}
 		#endregion
 
@@ -230,7 +230,7 @@ namespace Xevle.Maths.Tuples
 			double c = (this * b) / (!this * !b);
 			if (c > 1) c = 1;
 			if (c < -1) c = -1;
-			return System.Math.Acos(c);
+			return Math.Acos(c);
 		}
 
 		/// <summary>
