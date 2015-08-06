@@ -3,48 +3,42 @@ using Xevle.Core;
 
 namespace Xevle.Maths.Tuples
 {
-	public struct Tuple3is: ITuple
+	public class Tuple4dc: ITuple
 	{
 		#region Variables
+		public double w;
+
 		/// <summary>
 		/// Variable to store the x value.
 		/// </summary>
-		public int x;
+		public double x;
 
 		/// <summary>
 		/// Variable to store the y value.
 		/// </summary>
-		public int y;
+		public double y;
 
 		/// <summary>
 		/// Variable to store the z value.
 		/// </summary>
-		public int z;
+		public double z;
 		#endregion
 
 		#region Constructors
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Xevle.Math.Tuple3is"/> class.
-		/// </summary>
-		/// <param name="tuple">Instance of an ITuple implementor.</param>
-		public Tuple3is(ITuple tuple)
+		public Tuple4dc(ITuple tuple)
 		{
-			x = (int)tuple.X;
-			y = (int)tuple.Y;
-			z = (int)tuple.Z;
+			x = tuple.X;
+			y = tuple.Y;
+			z = tuple.Z;
+			w = tuple.W;
 		}
 
-		/// <summary>
-		/// Initializes a new instance of the <see cref="Xevle.Math.Tuple3is"/> class.
-		/// </summary>
-		/// <param name="x">The x coordinate.</param>
-		/// <param name="y">The y coordinate.</param>
-		/// <param name="z">The z coordinate.</param>
-		public Tuple3is(int x = 0, int y = 0, int z = 0)
+		public Tuple4dc(double x = 0, double y = 0, double z = 0, double w = 0)
 		{
-			this.x = (int)x;
-			this.y = (int)y;
-			this.z = (int)z;
+			this.x = x;
+			this.y = y;
+			this.z = z;
+			this.w = w;
 		}
 		#endregion
 
@@ -54,27 +48,39 @@ namespace Xevle.Maths.Tuples
 		/// Does nothing, only for completeness
 		/// </summary>
 		/// <param name="a">The tuple</param>
-		public static Tuple3is operator +(Tuple3is a)
+		public static Tuple4dc operator +(Tuple4dc a)
 		{
-			return new Tuple3is(a);
+			return new Tuple4dc(a);
 		}
 
 		/// <summary>
 		/// Invert the sign of the x, y and z component
 		/// </summary>
 		/// <param name="a">The tuple</param>
-		public static Tuple3is operator -(Tuple3is a)
+		public static Tuple4dc operator -(Tuple4dc a)
 		{
-			return new Tuple3is(-a.x, -a.y, -a.z);
+			return new Tuple4dc(-a.x, -a.y, -a.z, -a.w);
 		}
 
 		/// <summary>
 		/// Calculate the magnitude of a vectors
 		/// </summary>
 		/// <param name="a">The tuple</param>
-		public static double operator !(Tuple3is a)
+		public static double operator !(Tuple4dc a)
 		{
-			return System.Math.Sqrt(a.x * a.x + a.y * a.y + a.z * a.z);
+			return Math.Sqrt(a.x * a.x + a.y * a.y + a.z * a.z + a.w * a.w);
+		}
+
+		/// <summary>
+		/// Calculate the normalized vector
+		/// </summary>
+		/// <param name="a">The tuple</param>
+		public static Tuple4dc operator ~(Tuple4dc a)
+		{
+			double magnitude = !a;
+			if (Double.IsNaN(magnitude) || magnitude <= 0) return new Tuple4dc(1, 0, 0, 0);
+			double length = Math.Sqrt(magnitude);
+			return new Tuple4dc(a.x / length, a.y / length, a.z / length, a.w / length);
 		}
 		#endregion
 
@@ -84,9 +90,9 @@ namespace Xevle.Maths.Tuples
 		/// </summary>
 		/// <param name="a">The first Tuple</param>
 		/// <param name="b">The second Tuple</param>
-		public static Tuple3is operator+(Tuple3is a, Tuple3is b)
+		public static Tuple4dc operator+(Tuple4dc a, Tuple4dc b)
 		{
-			return new Tuple3is(a.x + b.x, a.y + b.y, a.z + b.z);
+			return new Tuple4dc(a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w);
 		}
 
 		/// <summary>
@@ -94,9 +100,9 @@ namespace Xevle.Maths.Tuples
 		/// </summary>
 		/// <param name="a">The first Tuple</param>
 		/// <param name="b">The second Tuple as ITuple</param>
-		public static Tuple3is operator+(Tuple3is a, ITuple b)
+		public static Tuple4dc operator+(Tuple4dc a, ITuple b)
 		{
-			return new Tuple3is(a.x + (int)b.X, a.y + (int)b.Y, a.z + (int)b.Z);
+			return new Tuple4dc(a.x + b.X, a.y + b.Y, a.z + b.Z, a.w + b.W);
 		}
 
 		/// <summary>
@@ -104,9 +110,9 @@ namespace Xevle.Maths.Tuples
 		/// </summary>
 		/// <param name="a">The first tuple</param>
 		/// <param name="b">The second tuple</param>
-		public static Tuple3is operator-(Tuple3is a, Tuple3is b)
+		public static Tuple4dc operator-(Tuple4dc a, Tuple4dc b)
 		{
-			return new Tuple3is(a.x - b.x, a.y - b.y, a.z - b.z);
+			return new Tuple4dc(a.x - b.x, a.y - b.y, a.z - b.z, a.w - b.w);
 		}
 
 		/// <summary>
@@ -114,9 +120,9 @@ namespace Xevle.Maths.Tuples
 		/// </summary>
 		/// <param name="a">The first tuple</param>
 		/// <param name="b">The second tuple as ITuple</param>
-		public static Tuple3is operator-(Tuple3is a, ITuple b)
+		public static Tuple4dc operator-(Tuple4dc a, ITuple b)
 		{
-			return new Tuple3is(a.x - (int)b.X, a.y - (int)b.Y, a.z - (int)b.Z);
+			return new Tuple4dc(a.x - b.X, a.y - b.Y, a.z - b.Z, a.w - b.W);
 		}
 
 		/// <summary>
@@ -124,9 +130,9 @@ namespace Xevle.Maths.Tuples
 		/// </summary>
 		/// <param name="a">The tuple</param>
 		/// <param name="b">The scale value</param>
-		public static Tuple3is operator *(Tuple3is a, int b)
+		public static Tuple4dc operator *(Tuple4dc a, double b)
 		{
-			return new Tuple3is(a.x * b, a.y * b, a.z * b);
+			return new Tuple4dc(a.x * b, a.y * b, a.z * b, a.w * b);
 		}
 
 		/// <summary>
@@ -134,9 +140,9 @@ namespace Xevle.Maths.Tuples
 		/// </summary>
 		/// <param name="a">The first Tuple</param>
 		/// <param name="b">The second Tuple</param>
-		public static double operator *(Tuple3is a, Tuple3is b)
+		public static double operator *(Tuple4dc a, Tuple4dc b)
 		{
-			return a.x * b.x + a.y * b.y + a.z * b.z;
+			return a.x * b.x + a.y * b.y + a.z * b.z + a.w * b.w;
 		}
 
 		/// <summary>
@@ -144,29 +150,9 @@ namespace Xevle.Maths.Tuples
 		/// </summary>
 		/// <param name="a">The first Tuple</param>
 		/// <param name="b">The second Tuple as ITuple</param>
-		public static double operator *(Tuple3is a, ITuple b)
+		public static double operator *(Tuple4dc a, ITuple b)
 		{
-			return a.x * b.X + a.y * b.Y + a.z * b.Z;
-		}
-
-		/// <summary>
-		/// Returns the cross product of two vectors
-		/// </summary>
-		/// <param name="a">The first Tuple</param>
-		/// <param name="b">The second Tuple</param>
-		public static Tuple3is operator ^(Tuple3is a, Tuple3is b)
-		{
-			return new Tuple3is(a.y * b.z - a.z * b.y, a.z * b.x - a.x * b.z, a.x * b.y - a.y * b.x);
-		}
-
-		/// <summary>
-		/// Returns the cross product of two vectors
-		/// </summary>
-		/// <param name="a">The first Tuple</param>
-		/// <param name="b">The second Tuple as ITuple</param>
-		public static Tuple3is operator ^(Tuple3is a, ITuple b)
-		{
-			return new Tuple3is(a.y * (int)b.Z - a.z * (int)b.Y, a.z * (int)b.X - a.x * (int)b.Z, a.x * (int)b.Y - a.y * (int)b.X);
+			return a.x * b.X + a.y * b.Y + a.z * b.Z + a.w * b.W;
 		}
 
 		/// <summary>
@@ -174,7 +160,7 @@ namespace Xevle.Maths.Tuples
 		/// </summary>
 		/// <param name="a">The first tuple</param>
 		/// <param name="b">The second tuple</param>
-		public static double operator %(Tuple3is a, Tuple3is b)
+		public static double operator %(Tuple4dc a, Tuple4dc b)
 		{
 			return !(a - b);
 		}
@@ -184,41 +170,41 @@ namespace Xevle.Maths.Tuples
 		/// </summary>
 		/// <param name="a">The first tuple</param>
 		/// <param name="b">The second tuple as ITuple</param>
-		public static double operator %(Tuple3is a, ITuple b)
+		public static double operator %(Tuple4dc a, ITuple b)
 		{
 			return !(a - b);
 		}
 		#endregion
 
 		#region Typecast operators
-		public static implicit operator Tuple3is(Tuple<double, double> source)
+		public static implicit operator Tuple4dc(Tuple<double, double> source)
 		{
-			return new Tuple3is((int)source.Item1, (int)source.Item2);
+			return new Tuple4dc(source.Item1, source.Item2);
 		}
 
-		public static implicit operator Tuple3is(Tuple<float, float> source)
+		public static implicit operator Tuple4dc(Tuple<float, float> source)
 		{
-			return new Tuple3is((int)source.Item1, (int)source.Item2);
+			return new Tuple4dc(source.Item1, source.Item2);
 		}
 
-		public static implicit operator Tuple3is(Tuple<int, int> source)
+		public static implicit operator Tuple4dc(Tuple<int, int> source)
 		{
-			return new Tuple3is(source.Item1, source.Item2);
+			return new Tuple4dc(source.Item1, source.Item2);
 		}
 
-		public static implicit operator Tuple3is(Tuple<double, double, double> source)
+		public static implicit operator Tuple4dc(Tuple<double, double, double> source)
 		{
-			return new Tuple3is((int)source.Item1, (int)source.Item2, (int)source.Item3);
+			return new Tuple4dc(source.Item1, source.Item2, source.Item3);
 		}
 
-		public static implicit operator Tuple3is(Tuple<float, float, float> source)
+		public static implicit operator Tuple4dc(Tuple<float, float, float> source)
 		{
-			return new Tuple3is((int)source.Item1, (int)source.Item2, (int)source.Item3);
+			return new Tuple4dc(source.Item1, source.Item2, source.Item3);
 		}
 
-		public static implicit operator Tuple3is(Tuple<int, int, int> source)
+		public static implicit operator Tuple4dc(Tuple<int, int, int> source)
 		{
-			return new Tuple3is(source.Item1, source.Item2, source.Item3);
+			return new Tuple4dc(source.Item1, source.Item2, source.Item3);
 		}
 		#endregion
 		#endregion
@@ -229,7 +215,7 @@ namespace Xevle.Maths.Tuples
 		/// </summary>
 		/// <returns>The angle from this tuple to tuple b</returns>
 		/// <param name="b">The tuple</param>
-		public double AngleTo(Tuple3is b)
+		public double AngleTo(Tuple4dc b)
 		{
 			double c = (this * b) / (!this * !b);
 			if (c > 1) c = 1;
@@ -252,6 +238,9 @@ namespace Xevle.Maths.Tuples
 			if ((diff >= 0.0 ? diff : -diff) > epsilon) return false;
 
 			diff = z - a.Z;
+			if ((diff >= 0.0 ? diff : -diff) > epsilon) return false;
+
+			diff = w - a.W;
 			return (diff >= 0.0 ? diff : -diff) <= epsilon;
 		}
 
@@ -271,9 +260,9 @@ namespace Xevle.Maths.Tuples
 		}
 
 		/// <summary>
-		/// Returns a <see cref="System.String"/> that represents the current <see cref="Xevle.Math.Tuples.Tuple3is"/>.
+		/// Returns a <see cref="System.String"/> that represents the current <see cref="Xevle.Math.Tuples.Tuple4dc"/>.
 		/// </summary>
-		/// <returns>A <see cref="System.String"/> that represents the current <see cref="Xevle.Math.Tuples.Tuple3is"/>.</returns>
+		/// <returns>A <see cref="System.String"/> that represents the current <see cref="Xevle.Math.Tuples.Tuple4dc"/>.</returns>
 		public override string ToString()
 		{
 			return String.Format("({0}; {1}; {2})", x, y, z);
@@ -285,10 +274,11 @@ namespace Xevle.Maths.Tuples
 		{
 			get
 			{
-				return 0;
+				return w;
 			}
 			set
 			{
+				w = value;
 			}
 		}
 
@@ -304,7 +294,7 @@ namespace Xevle.Maths.Tuples
 			}
 			set
 			{
-				x = (int)value;
+				x = value;
 			}
 		}
 
@@ -320,7 +310,7 @@ namespace Xevle.Maths.Tuples
 			}
 			set
 			{
-				y = (int)value;
+				y = value;
 			}
 		}
 
@@ -336,7 +326,7 @@ namespace Xevle.Maths.Tuples
 			}
 			set
 			{
-				z = (int)value;
+				z = value;
 			}
 		}
 		#endregion
@@ -351,11 +341,11 @@ namespace Xevle.Maths.Tuples
 		}
 
 		/// <summary>
-		/// Copy this instance as Tuple3is
+		/// Copy this instance as Tuple4dc
 		/// </summary>
-		public Tuple3is Copy()
+		public Tuple4dc Copy()
 		{
-			return (Tuple3is)MemberwiseClone();
+			return (Tuple4dc)MemberwiseClone();
 		}
 		#endregion
 	}

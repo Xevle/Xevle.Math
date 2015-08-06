@@ -185,6 +185,38 @@ namespace Xevle.Maths.Tuples
 			return !(a - b);
 		}
 		#endregion
+
+		#region Typecast operators
+		public static implicit operator Tuple2ic(Tuple<double, double> source)
+		{
+			return new Tuple2ic((int)source.Item1, (int)source.Item2);
+		}
+
+		public static implicit operator Tuple2ic(Tuple<float, float> source)
+		{
+			return new Tuple2ic((int)source.Item1, (int)source.Item2);
+		}
+
+		public static implicit operator Tuple2ic(Tuple<int, int> source)
+		{
+			return new Tuple2ic(source.Item1, source.Item2);
+		}
+
+		public static implicit operator Tuple2ic(Tuple<double, double, double> source)
+		{
+			return new Tuple2ic((int)source.Item1, (int)source.Item2);
+		}
+
+		public static implicit operator Tuple2ic(Tuple<float, float, float> source)
+		{
+			return new Tuple2ic((int)source.Item1, (int)source.Item2);
+		}
+
+		public static implicit operator Tuple2ic(Tuple<int, int, int> source)
+		{
+			return new Tuple2ic(source.Item1, source.Item2);
+		}
+		#endregion
 		#endregion
 
 		#region Methods
@@ -227,26 +259,7 @@ namespace Xevle.Maths.Tuples
 		#endregion
 
 		#region ITuple implementation
-		/// <summary>
-		/// Gets or sets the value U.
-		/// </summary>
-		/// <value>U</value>
-		public double U
-		{
-			get
-			{
-				return 0;
-			}
-			set
-			{
-			}
-		}
-
-		/// <summary>
-		/// Gets or sets the value V.
-		/// </summary>
-		/// <value>The v.</value>
-		public double V
+		public double W
 		{
 			get
 			{

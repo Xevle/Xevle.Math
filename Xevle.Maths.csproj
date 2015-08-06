@@ -46,11 +46,21 @@
     <Compile Include="Tuples\Tuple2is.cs" />
     <Compile Include="Arithmetic\BinaryArithmetic.cs" />
     <Compile Include="Tuples\ListOfITupleExtensions.cs" />
+    <Compile Include="Numeral\Systems\GrayCode.cs" />
+    <Compile Include="Numeral\Systems\NumeralSystemConverter.cs" />
+    <Compile Include="Algebra\Linear\Matrix2d.cs" />
+    <Compile Include="Algebra\Linear\Matrix3d.cs" />
+    <Compile Include="Algebra\Linear\Matrix4d.cs" />
+    <Compile Include="Tuples\Tuple4dc.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Folder Include="Tuples\" />
     <Folder Include="Arithmetic\" />
+    <Folder Include="Numeral\" />
+    <Folder Include="Numeral\Systems\" />
+    <Folder Include="Algebra\" />
+    <Folder Include="Algebra\Linear\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xevle.Core\Xevle.Core.csproj">

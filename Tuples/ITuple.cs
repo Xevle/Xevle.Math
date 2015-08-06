@@ -9,16 +9,10 @@ namespace Xevle.Maths.Tuples
 	public interface ITuple: ICopy<ITuple>
 	{
 		/// <summary>
-		/// Gets or sets the value U.
+		/// Gets or sets the w.
 		/// </summary>
-		/// <value>U</value>
-		double U { get; set; }
-
-		/// <summary>
-		/// Gets or sets the value V.
-		/// </summary>
-		/// <value>The v.</value>
-		double V { get; set; }
+		/// <value>The w.</value>
+		double W { get; set; }
 
 		/// <summary>
 		/// Gets or sets the value X.
